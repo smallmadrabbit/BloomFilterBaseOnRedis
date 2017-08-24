@@ -1,0 +1,2 @@
+# BloomFilterBaseOnRedis
+基于redis的bloom的布隆过滤器，主做去重
