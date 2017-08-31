@@ -9,16 +9,28 @@ public class BfConfiguration {
     private double falsePositiveRate;
     private int estDataNumber;
     private int bitLength;
-
+    /**
+     * @param host redis主机ip
+     * @param port redis端口
+     * 直接指定Bit的长度
+     * */
     public BfConfiguration(String host, int port, int bitLength) {
         this.host = host;
         this.port = port;
         this.bitLength = bitLength;
+        this.hashNumber = 7;
         if (bitLength < 0){
             throw  new RuntimeException("用于去重的位信息长度不能为0");
         }
     }
-
+    /**
+     * @param host redis主机ip
+     * @param port redis端口
+     * @param hashNumber 需要使用的hash算法的数量,最多15个,最少1个
+     * @param falsePositiveRate 误判率
+     * @param estDataNumber 预估要判重的数量个数
+     * 其中hashNumber,falsePositiveRate,estDataNumber会影响计算出的需要bit的个数（长度）
+     * */
     public BfConfiguration(String host, int port, int hashNumber, double falsePositiveRate, int estDataNumber) {
         this.host = host;
         this.port = port;
