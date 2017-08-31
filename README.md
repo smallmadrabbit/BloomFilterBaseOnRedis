@@ -10,8 +10,8 @@
 //第四个参数为 误判率
 //第五个参数为 预估的要判重数据的个数
 BfConfiguration bc = new BfConfiguration("192.168.88.213",6379,8,0.00001,200000000);
-System.out.println(bc);
+//创建工具对象
 BFUtil bfUtil = new BFUtil(bc);
 //返回true表示不存在，返回false表示已经存在
-bfUtil.add(UUID.randomUUID().toString());
+boolean flag = bfUtil.add(UUID.randomUUID().toString());
 ```
